@@ -620,14 +620,12 @@ Log.d(TAG,"Decoded value is " + new String(valueDecoded));
 flutter channel master
 flutter upgrade
 ```
-
 #
 #### CI4 Redirect
 ```php
 return redirect()->to('url'); 
 return redirect()->route('named_route');
 ```
-
 #
 #### Flutter Row Center
 ```dart
@@ -636,7 +634,6 @@ Row(
     children: []
 )
 ```
-
 #
 #### Flutter List
 ```dart
@@ -645,7 +642,6 @@ json['datas'].forEach((v) {
     datas.add(create(v));
 });
 ```
-
 #
 #### Flutter Items Generator
 ```dart
@@ -678,7 +674,6 @@ child: Column(
 ```
 https://stackoverflow.com/questions/50441168/iterating-through-a-list-to-render-multiple-widgets-in-flutter
 ```
-
 #
 #### Flutter Generate From Current Value
 ```dart
@@ -693,7 +688,6 @@ String freeDelivery(subTotal){
     }
 }
 ```
-
 #
 #### Flutter Generate Widget Array
 ```dart
@@ -726,7 +720,6 @@ List<Text> createChildrenTexts() {
     return list.map((text) => Text(text, style: TextStyle(color: Colors.blue),)).toList();
 }
 ```
-
 #
 #### Flutter ListView.builder
 ```dart
@@ -743,6 +736,58 @@ Container(
     },
   ),
 );
+```
+#
+#### Flutter Statusbar Color
+
+Update Flutter 2.0 (Recommended):
+```dart
+AppBar(
+    backwardsCompatibility: true,
+    systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white),
+)
+```
+Only Android (more flexibility):
+```dart
+SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.blue, // navigation bar color
+    statusBarColor: Colors.pink, // status bar color
+));
+```
+Both iOS and Android:
+```dart
+AppBar(
+    backgroundColor: Colors.red, // status bar color
+    brightness: Brightness.light, // status bar brightness
+)
+```
+#
+#### Flutter StatusBarColor NavigationColor Recomended
+```dart
+SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.white,
+    statusBarBrightness: Brightness.dark,
+    systemNavigationBarColor: Colors.white,
+    systemNavigationBarIconBrightness: Brightness.dark
+));
+```
+```dart
+AppBar(
+    backwardsCompatibility: true,
+    systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark,
+    ),
+)
+```
+#
+#### Flutter DebugBanner
+```dart
+MaterialApp(
+  debugShowCheckedModeBanner: false,
+)
 ```
 
 ---
