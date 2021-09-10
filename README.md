@@ -637,6 +637,96 @@ Row(
 )
 ```
 
+#
+#### Flutter List
+```dart
+List<T> datas = List<T>.empty(growable: true);
+json['datas'].forEach((v) {
+    datas.add(create(v));
+});
+```
+
+#
+#### Flutter Items Generator
+```dart
+final List<MyModel>? product_desc;
+
+List<Widget> get items => itemGenerator(product_desc!);
+
+List<Widget> itemGenerator(List<MyModel> data){
+    List<Widget> d = List<Widget>.empty(growable: true);
+    for(var i=0; i<data.length; i++){
+      d.add(Text(data[i].description.toString()));
+    }
+    return d;
+}
+```
+```dart
+List<String> list = ['one', 'two', 'three', 'four'];
+List<Widget> widgets = list.map((name) => new Text(name)).toList();
+```
+```dart
+var list = ["one", "two", "three", "four"];
+
+child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+        for(var item in list ) Text(item)
+    ],
+),
+```
+```
+https://stackoverflow.com/questions/50441168/iterating-through-a-list-to-render-multiple-widgets-in-flutter
+```
+
+#
+#### Flutter Generate From Current Value
+```dart
+String get freeDeliveryString => freeDelivery(subTotal);
+
+String freeDelivery(subTotal){
+    if(subTotal >= 30){
+        return "You have FREE Delivery";
+    } else{
+        double missing = 30.0-subTotal;
+        return "Add \$${missing.toStringAsFixed(2)} for FREE Delivery";
+    }
+}
+```
+
+#
+#### Flutter Generate Widget Array
+```dart
+var list = ["one", "two", "three", "four"];
+
+@override
+Widget build(BuildContext context) {
+    return new MaterialApp(
+        home: new Scaffold(
+            appBar: new AppBar(
+                title: new Text('List Test'),
+            ),
+            body: new Center(
+                child: new Column( // Or Row or whatever :),
+                children: createChildrenTexts(),
+            ),
+        ),
+    );
+}
+
+List<Text> createChildrenTexts() {
+    /// Method 1
+    List<Text> childrenTexts = List<Text>();
+    for (String name in list) {
+        childrenTexts.add(new Text(name, style: new TextStyle(color: Colors.red),));
+    }
+    return childrenTexts;
+
+    /// Method 2
+    return list.map((text) => Text(text, style: TextStyle(color: Colors.blue),)).toList();
+}
+```
+
 ---
 
 ```
