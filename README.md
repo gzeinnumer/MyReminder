@@ -727,6 +727,24 @@ List<Text> createChildrenTexts() {
 }
 ```
 
+#
+#### Flutter ListView.builder
+```dart
+Container(
+  child: ListView.builder(
+    shrinkWrap: true,
+    itemCount: items.length,
+    itemBuilder: (BuildContext context, int index){
+      return Container(
+        child: Text(
+          items[index]['property']
+        ),
+      );
+    },
+  ),
+);
+```
+
 ---
 
 ```
