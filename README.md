@@ -789,6 +789,25 @@ MaterialApp(
   debugShowCheckedModeBanner: false,
 )
 ```
+#
+#### nestedScrollingEnabled NestedScrollView RecyclerView
+```xml
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:nestedScrollingEnabled="false"
+        android:layout_height="wrap_content"
+        android:padding="4dp" />
+
+</androidx.core.widget.NestedScrollView>
+```
+```java
+recyclerView.setNestedScrollingEnabled(false);
+```
 
 ---
 
