@@ -902,6 +902,14 @@ binding.rvData.setItemViewCacheSize(100);
         android:nestedScrollingEnabled="false" />
 <!--</androidx.core.widget.NestedScrollView>-->
 ```
+#
+#### Flutter Dialog Disable Outside
+```dart
+showDialog(
+  barrierDismissible: false,
+  builder: ...
+);
+```
 
 ---
 
