@@ -838,6 +838,70 @@ const Divider(
     endIndent: 20,
 )
 ```
+#
+#### Android Issue Core:1.7
+```dart
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.6.0'
+    }
+}
+```
+#
+#### Dynamic RecyclerView Scroll On Focused Ediitext
+```xml
+<activity
+    android:name=".ui.scoring.subMenu.pertanyaan.PertanyaanActivity"
+    android:screenOrientation="portrait"
+    android:windowSoftInputMode="adjustResize" />
+```
+```java
+holder.freetext.setOnFocusChangeListener((view, b) -> {
+    if (b){
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+});
+```
+```xml
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/freetext_p"
+    style="@style/MyTextInputLayoutOutlinedBoxNext"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:hint="Notes"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/freetext"
+        style="@style/MyTextInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:maxLength="200" />
+
+</com.google.android.material.textfield.TextInputLayout>
+```
+```java
+binding.rvData.setAdapter(adapterLevel1);
+binding.rvData.setHasFixedSize(true);
+binding.rvData.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+binding.rvData.setItemViewCacheSize(100);
+```
+```xml
+<!--<androidx.core.widget.NestedScrollView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content">-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false" />
+<!--</androidx.core.widget.NestedScrollView>-->
+```
 
 ---
 
