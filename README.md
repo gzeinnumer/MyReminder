@@ -916,6 +916,25 @@ showDialog(
 final Function()? onPositivePressed;
 final ValueChanged<String>? onChanged;
 ```
+#
+#### Flutter Container Radius
+```dart
+Container(
+    width: match_parent,
+    decoration : BoxDecoration(
+        color: Colors.white,
+        borderRadius: new BorderRadius.circular(def_margin)
+    ),
+    margin: const EdgeInsets.all(def_margin),
+    child: PaddingAll(
+        child: Column(
+            children: [
+                ...
+            ],
+        ),
+    ),
+),
+```
 
 ---
 
