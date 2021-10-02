@@ -561,7 +561,7 @@ public String requestToString(Response response) {
 }
 ```
 #
-#### CI3 CI4 CodeIgnither
+#### CI3 CI4 CodeIgnither Laravel
 
 - CI3
 ```php
@@ -581,6 +581,13 @@ $data = $db->query($query);
 // return json_encode($query->getResultArray());
 // return json_encode($query->getRow());
 return $this->respond($data->getResult());
+```
+
+- Laravel
+```php
+$data = DB::select("SELECT kilometer FROM tyres WHERE usage=1 ORDER by id DESC LIMIT 1");
+
+Tyres::select('kilometer')->where('usage',1)->orderBy('id', 'DESC')->take(1)->get();
 ```
 #
 #### CompositeDisposable RXJava
@@ -934,6 +941,26 @@ Container(
         ),
     ),
 ),
+```
+#
+#### Flutter Layout Weight
+```dart
+return Scaffold(
+  appBar: EmptyAppBar(),
+  body: Stack(
+    children: [
+      BackgroundType4(),
+      Container(
+        child: Column(
+          children: [
+            Expanded(child: Container(color: Colors.red,)),
+            Expanded(child: Container(color: Colors.blue,)),
+          ],
+        ),
+      ),
+    ],
+  ),
+);
 ```
 
 ---
