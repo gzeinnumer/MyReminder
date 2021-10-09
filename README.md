@@ -962,6 +962,17 @@ return Scaffold(
   ),
 );
 ```
+#
+#### RecyclerView Grid
+```java
+DummyAdapter dummyAdapter = new DummyAdapter(R.layout.item_kategori, position -> {
+
+});
+binding.rvKategori.setAdapter(dummyAdapter);
+GridLayoutManager layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+binding.rvKategori.setLayoutManager(layoutManager);
+binding.rvKategori.hasFixedSize();
+```
 
 ---
 
