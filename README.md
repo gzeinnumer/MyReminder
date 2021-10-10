@@ -51,6 +51,11 @@ parent.setPadding(0, 0, 0, 0);
 android:layout_marginTop="?attr/actionBarSize"
 ```
 #
+#### Height BottomNavigation
+```xml
+android:layout_height="@android:dimen/navigation_bar_height"
+```
+#
 #### Remove WORD
 ```java
 String str = "Select * FROM table1 WHERaE 1";
