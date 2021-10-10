@@ -973,6 +973,13 @@ GridLayoutManager layoutManager = new GridLayoutManager(this, 2, GridLayoutManag
 binding.rvKategori.setLayoutManager(layoutManager);
 binding.rvKategori.hasFixedSize();
 ```
+#
+#### Symbol
+```
+• = \u2022,   ● = \u25CF,   ○ = \u25CB,   ▪ = \u25AA,   ■ = \u25A0,   □ = \u25A1,   ► = \u25BA
+
+& = &amp;
+```
 
 ---
 
