@@ -984,7 +984,34 @@ binding.rvKategori.hasFixedSize();
 • = \u2022,   ● = \u25CF,   ○ = \u25CB,   ▪ = \u25AA,   ■ = \u25A0,   □ = \u25A1,   ► = \u25BA
 
 & = &amp;
+
+<string name="space_demo">|&#x20;|&#x2009;|&#x200A;|</string>
+| SPACE | THIN SPACE | HAIR SPACE |
 ```
+#
+#### RecylcerView No Scroll Effect
+```xml
+<androidx.recyclerview.widget.RecyclerView
+    ...
+    android:overScrollMode="never"/>
+```
+#
+#### Best Color
+```xml
+<color name="text_header">#FF282828</color>
+<color name="text_content">#FF1C1C1C</color>
+<color name="grey_text">#363636</color>
+<color name="grey_light_text">#888888</color>
+<color name="white_low">#F9F9F9</color>
+<color name="grey_disabled">#A8A8A8</color>
+<color name="disabled_grey_light">#D3D3D3</color>
+<color name="divider">#DCDCDC</color>
+<color name="grey_dark">#A9A9A9</color>
+<color name="red_500">#F44336</color>
+<color name="green_A700">#00C853</color>
+<color name="blue_500">#2196F3</color>
+```
+
 
 ---
 
