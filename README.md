@@ -1011,7 +1011,56 @@ binding.rvKategori.hasFixedSize();
 <color name="green_A700">#00C853</color>
 <color name="blue_500">#2196F3</color>
 ```
+#
+#### Disbale EditText
+```xml
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/ed_provinsi_p"
+    style="@style/MyAutoCompleteTextViewOutlineBox.Man"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Provinsi*">
 
+    <AutoCompleteTextView
+        android:id="@+id/ed_provinsi"
+        style="@style/MyAutoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="false" />
+</com.google.android.material.textfield.TextInputLayout>
+```
+#
+#### TextView Shape White Nice
+```xml
+<EditText
+    android:id="@+id/ed_response"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/def_margin_half"
+    android:background="@drawable/background_filled_white_radius_v2"
+    android:gravity="start"
+    android:hint="Tulis Disini"
+    android:minLines="5"
+    android:padding="@dimen/def_margin_half"
+    android:text="@string/dummy_3"
+    android:textAlignment="textStart"
+    android:textSize="@dimen/h4" />
+```
+```xml
+<TextView
+    style="@style/MyTextContent"
+    android:layout_width="match_parent"
+    android:layout_marginStart="@dimen/def_margin"
+    android:layout_marginLeft="@dimen/def_margin"
+    android:layout_marginTop="@dimen/space_half"
+    android:layout_marginEnd="@dimen/def_margin"
+    android:background="@drawable/shape_tv_white"
+    android:paddingLeft="@dimen/space"
+    android:paddingTop="@dimen/space_half"
+    android:paddingRight="@dimen/space"
+    android:paddingBottom="@dimen/space_half"
+    android:text="MyTextContent" />
+```
 
 ---
 
