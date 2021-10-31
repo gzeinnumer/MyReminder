@@ -56,6 +56,11 @@ android:layout_marginTop="?attr/actionBarSize"
 android:layout_height="@android:dimen/navigation_bar_height"
 ```
 #
+#### Animation Default
+```xml
+@android:anim/bounce_interpolator
+```
+#
 #### Remove WORD
 ```java
 String str = "Select * FROM table1 WHERaE 1";
@@ -1060,6 +1065,43 @@ binding.rvKategori.hasFixedSize();
     android:paddingRight="@dimen/space"
     android:paddingBottom="@dimen/space_half"
     android:text="MyTextContent" />
+```
+#
+#### Default Anim Android
+```xml
+app:exitAnim="@android:anim/fade_out"
+```
+#
+#### Component Navigation
+```kotlin
+val action = FirstFragmentDirections.actionFirstFragmentToFirstDotFirstFragment("data")
+findNavController().navigate(action)
+```
+#
+#### Data Class
+```koltin
+data class ExampleModel(val id: Int, val name: String,val address: String)
+```
+```koltin
+data class ExampleModel(val id: Int, val name: String,val address: String) {
+
+    override fun toString(): String {
+        return "$id - $name - $address"
+    }
+}
+```
+[Source](https://kotlinlang.org/docs/data-classes.html#properties-declared-in-the-class-body)
+
+#
+#### Color Opacity
+
+- res/color/color_primary_30
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:alpha="0.3" android:color="@color/colorPrimary" />
+</selector>
 ```
 
 ---
