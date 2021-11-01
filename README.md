@@ -1125,7 +1125,7 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
 - activity_main.xml
 ```xml
 <LinearLayout
-    android:background="@drawable/dynamic_option_menus_bg"
+    android:background="@drawable/corner_rv"
     android:padding="@dimen/def_margin"
     ...
     />
