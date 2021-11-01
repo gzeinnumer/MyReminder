@@ -1103,6 +1103,33 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
     <item android:alpha="0.3" android:color="@color/colorPrimary" />
 </selector>
 ```
+- res/drawable/corner_rv
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/color_primary_13" />
+
+    <padding
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/radius"
+        android:bottomRightRadius="@dimen/radius"
+        android:topLeftRadius="@dimen/radius"
+        android:topRightRadius="@dimen/radius" />
+</shape>
+```
+- activity_main.xml
+```xml
+<LinearLayout
+    android:background="@drawable/dynamic_option_menus_bg"
+    android:padding="@dimen/def_margin"
+    ...
+    />
+```
 
 ---
 
