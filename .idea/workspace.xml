@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be10bbb4-1933-4d02-ba2f-24a82dec8162" name="Default Changelist" comment="read me" />
+    <list default="true" id="be10bbb4-1933-4d02-ba2f-24a82dec8162" name="Default Changelist" comment="read me">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,13 +53,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609904286205</updated>
-    </task>
-    <task id="LOCAL-00036" summary="read me">
-      <created>1622611094719</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1622611094719</updated>
     </task>
     <task id="LOCAL-00037" summary="read me">
       <created>1623179729938</created>
@@ -395,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635731750361</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="read me">
+      <created>1635732149645</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1635732149646</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">

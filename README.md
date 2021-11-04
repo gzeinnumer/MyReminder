@@ -1130,6 +1130,18 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
     ...
     />
 ```
+#
+#### Dependency: androidx.core:core-ktx:1.7.0.
+```java
+buildFeatures{
+    viewBinding = true
+}
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.6.0'
+    }
+}
+```
 
 ---
 
