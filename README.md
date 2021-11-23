@@ -1142,6 +1142,31 @@ configurations.all {
     }
 }
 ```
+#
+#### Round Up
+```java
+public int getPriceinpcs() {
+    return (int) Math.ceil(priceinpcs);
+}
+```
+#
+#### Message Or Realease
+```java
+public static String msgDebugOrRelease(String debug, String realese) {
+    if (BuildConfig.DEBUG) {
+        return debug;
+    } else {
+        return realese;
+    }
+}
+```
+#
+#### Dummy Count
+```java
+public static int getDummyCount() {
+    return Integer.parseInt(MBUtilsDate.getCurrentTime("HH", Locale.getDefault())) + Integer.parseInt(MBUtilsDate.getCurrentTime("mm", Locale.getDefault()));
+}
+```
 
 ---
 
