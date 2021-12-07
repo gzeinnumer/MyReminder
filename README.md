@@ -857,10 +857,12 @@ const Divider(
 ```
 #
 #### Android Issue Core:1.7
-```dart
-configurations.all {
-    resolutionStrategy {
-        force 'androidx.core:core-ktx:1.6.0'
+```gradle
+android{
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.core:core-ktx:1.6.0'
+        }
     }
 }
 ```
