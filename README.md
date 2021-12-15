@@ -1169,6 +1169,12 @@ public static int getDummyCount() {
     return Integer.parseInt(MBUtilsDate.getCurrentTime("HH", Locale.getDefault())) + Integer.parseInt(MBUtilsDate.getCurrentTime("mm", Locale.getDefault()));
 }
 ```
+#
+#### Laravel X Api X android
+```
+php artisan serve --host 0.0.0.0 --port 80
+ipconfig
+```
 
 ---
 
