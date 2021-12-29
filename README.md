@@ -1175,6 +1175,13 @@ public static int getDummyCount() {
 php artisan serve --host 0.0.0.0 --port 80
 ipconfig
 ```
+#
+#### Theme Duplicate
+```xml
+<application
+    ...
+    tools:replace="android:theme, android:allowBackup">
+```
 
 ---
 
