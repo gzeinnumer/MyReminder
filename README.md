@@ -986,6 +986,13 @@ binding.rvKategori.setLayoutManager(layoutManager);
 binding.rvKategori.hasFixedSize();
 ```
 #
+#### RecyclerView Grid Style
+```java
+StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+```
+#
 #### Symbol
 ```
 • = \u2022,   ● = \u25CF,   ○ = \u25CB,   ▪ = \u25AA,   ■ = \u25A0,   □ = \u25A1,   ► = \u25BA
@@ -1181,6 +1188,124 @@ ipconfig
 <application
     ...
     tools:replace="android:theme, android:allowBackup">
+```
+#
+#### Thumbnail YouTube YT
+
+[Source](https://stackoverflow.com/questions/7324759/how-to-display-thumbnail-of-youtube-videos-in-android)
+```java
+//https://img.youtube.com/vi/JhTGDgS5enY/maxresdefault.jpg ->thumnail
+//https://www.youtube.com/watch?v=q1KOj3yrFfg -> real video
+
+Uri uri = Uri.parse(list.get(position).getYtUrl());
+String chapter = uri.getQueryParameter("v");
+String thumnailLink = "https://img.youtube.com/vi/"+chapter+"/maxresdefault.jpg";
+
+Glide.with(context).load(thumnailLink).into(image);
+```
+```gradle
+implementation 'com.github.bumptech.glide:glide:4.11.0'
+annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+```
+#
+#### Include
+```xml
+<include
+    android:id="@+id/ws"
+    layout="@layout/widget_search_v2" />
+```
+#
+#### Validate Time
+```java
+Calendar rightNow = Calendar.getInstance();
+int currentHourIn24Format = rightNow.get(Calendar.HOUR_OF_DAY);
+
+if (currentHourIn24Format>=21 && currentHourIn24Format<=23){
+    Toast.makeText(getApplicationContext(), currentHourIn24Format+" if", Toast.LENGTH_SHORT).show();
+} else {
+    Toast.makeText(getApplicationContext(), currentHourIn24Format+" else", Toast.LENGTH_SHORT).show();
+}
+```
+#
+#### Path To Base64
+```java
+public static String convertToBase64WithDataImage(String imagePath) {
+    try {
+        Bitmap bm = BitmapFactory.decodeFile(imagePath);
+        //  bm = Bitmap.createScaledBitmap(bm, 1024, 1024, false);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+        byte[] byteArrayImage = baos.toByteArray();
+        return "data:image/jpeg;base64," + Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+    } catch (Exception e) {
+        Log.d(TAG, "convertToBase64WithDataImage: " + e.getMessage());
+        return " ";
+    }
+}
+
+
+Strig path = "";
+GblFunction.convertToBase64WithDataImage(path);
+```
+#
+#### Nice CardView
+```xml
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#F9F9F9"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_no_image"
+        android:visibility="visible" />
+</androidx.cardview.widget.CardView>
+```
+[ic_no_image.xml](https://github.com/gzeinnumer/MyReminder/blob/master/files/ic_no_image.xml)
+
+#
+#### TabLayout All Caps
+```xml
+<com.google.android.material.tabs.TabLayout
+    app:tabTextAppearance="@style/TabLayoutText">
+
+</com.google.android.material.tabs.TabLayout>
+```
+```xml
+<style name="TabLayoutText" parent="TextAppearance.Design.Tab">
+    <item name="textAllCaps">false</item>
+</style>
+```
+#
+#### Laravel Route
+```php
+//laravel 8
+use App\Http\Controllers\UserController;
+Route::get('/users', [UserController::class, 'index']);
+// or
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+```
+#
+#### TextView Html
+```java
+binding.tvContent.setText(Html.fromHtml(data.getMessage()));
+```
+
+#
+#### Laravel Public
+```
+http://localhost/laravel_project/public
+
+or
+
+http://localhost/mylogin/public
 ```
 
 ---
