@@ -1297,7 +1297,6 @@ Route::get('/users', 'App\Http\Controllers\UserController@index');
 ```java
 binding.tvContent.setText(Html.fromHtml(data.getMessage()));
 ```
-
 #
 #### Laravel Public
 ```
@@ -1306,6 +1305,42 @@ http://localhost/laravel_project/public
 or
 
 http://localhost/mylogin/public
+```
+#
+#### BottomNavigationView label always show
+```xml
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    ...
+    app:labelVisibilityMode="labeled"
+    app:menu="@menu/bottom_navigation_menu_v1" />
+```
+#
+#### SQL ORDER BY NO ID
+```java
+String query = "SELECT *, ROW_NUMBER() OVER() as LineNo  FROM " + table + " order by LineNo DESC;";
+```
+#
+#### Route Laravel Prefix
+```php
+use App\Http\Controllers\API\PagingControllerZein;
+Route::prefix('paging')->group(function () {
+     Route::get('/paging', [PagingControllerZein::class, 'paging']); //127.0.0.1:8000/api/paging/paging
+});
+```
+#
+#### Laravel Key
+```
+php artisan key:generate
+```
+#
+#### Ratio ConstraintLayout
+```xml
+android:layout_width="0dp"
+app:layout_constraintWidth_default="percent"
+app:layout_constraintWidth_percent=".5"
+android:layout_height="0dp"
+app:layout_constraintHeight_default="percent"
+app:layout_constraintHeight_percent=".5"
 ```
 
 ---
