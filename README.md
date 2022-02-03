@@ -1342,6 +1342,20 @@ android:layout_height="0dp"
 app:layout_constraintHeight_default="percent"
 app:layout_constraintHeight_percent=".5"
 ```
+#
+#### Copy Text To Clipboard
+```java
+private void setClipboard(Context context, String text) {
+    if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        clipboard.setText(text);
+    } else {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", text);
+        clipboard.setPrimaryClip(clip);
+    }
+}
+```
 
 ---
 
