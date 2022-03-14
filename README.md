@@ -1356,6 +1356,80 @@ private void setClipboard(Context context, String text) {
     }
 }
 ```
+#
+#### Laravel Blade PHP Variable
+```php
+public function index(){
+    $data = BarangModel::all();
+    $sent = [
+        'data' => $data,
+        'find' => null
+    ];
+    return view('barang.index', $sent);
+}
+```
+```html
+<input name="id" @if(!empty($find)) value="{{$find->id}}" @endif>
+```
+#
+#### Laravel Route Name
+```php
+Route::prefix('barang')->group(function () {
+    Route::get('/', [BarangController::class, 'index'])->name('barang.index');
+    Route::post('/update', [BarangController::class, 'update'])->name('barang.update');
+});
+```
+```php
+<form action="{{ route('barang.update') }}" method="POST"></form>
+
+<form action="/update" method="POST"></form>
+```
+#
+#### Laravel Flash Message
+```php
+Route::prefix('barang')->group(function () {
+    Route::get('/', [BarangController::class, 'index']); // /barang
+});
+```
+```php
+public function create(Request $r){
+    BarangModel::create($r->all());
+    return redirect('/barang')->with('sukses','Data berhasil diinput');
+}
+```
+```php
+@if(session('sukses'))
+<div class="alert alert-success" role="alert">
+  {{session('sukses')}}
+</div>
+@endif
+```
+#
+#### Readmu Simple With Image
+```
+![](assets/example1.jpg)
+
+<pre>
+<img src="preview/example.jpg" width="300">
+</pre>
+```
+#
+#### Node JS Express JS Starter
+```
+mkdir project_my
+npm init -y
+npm install -S express ejs
+npm app.js
+```
+```
+const express = require('express')
+const app = express()
+
+app.get('/params_input', (req, res) => {
+    //
+})
+```
+
 
 ---
 
