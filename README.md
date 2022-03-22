@@ -1429,7 +1429,33 @@ app.get('/params_input', (req, res) => {
     //
 })
 ```
+#
+#### Node JS Form Run Params
+```
+// var run = require('child_process');
+// run.fork(path + '/tools/model.js', ["BarangController"]); const data = process.argv[2];
 
+// require('shelljs').exec('node tools/templates/laravel_web/run.js', { body: req.body });
+// require('shelljs').exec('node tools/templates/laravel_web/run.js');
+```
+#
+#### Express JS Form
+```
+app.post('/params_input', urlencodedParser, [
+
+], (req, res) => {
+    console.log('Got body:', req.body);
+})
+```
+```
+<form action="/params_input" method="POST" novalidate>
+    <div class="form-group">
+        <label for="controllerName" class="form-label">controllerName</label>
+        <input type="text" class="form-control" name="controllerName" id="controllerName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
 
 ---
 
