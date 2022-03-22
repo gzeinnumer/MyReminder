@@ -1456,6 +1456,29 @@ app.post('/params_input', urlencodedParser, [
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
+#
+#### SearchView Intent
+```xml
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btn_search"
+    style="?android:attr/borderlessButtonStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/def_margin"
+    android:layout_marginRight="@dimen/def_margin"
+    android:drawableStart="@drawable/ic_search_normal"
+    android:gravity="center_vertical"
+    android:hint="@string/search"
+    android:drawablePadding="@dimen/def_margin_half"
+    android:padding="@dimen/space"
+    android:background="@drawable/background_filled_white_radius"
+    android:textAllCaps="false"
+    android:drawableLeft="@drawable/ic_search_normal" />
+```
+
+<pre>
+<img src="preview/example2.jpg" width="300">
+</pre>
 
 ---
 
