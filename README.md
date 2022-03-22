@@ -1477,7 +1477,7 @@ app.post('/params_input', urlencodedParser, [
 ```
 
 <pre>
-<img src="preview/example2.jpg" width="300">
+<img src="preview/example2.png" width="300">
 </pre>
 
 ---
