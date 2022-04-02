@@ -1177,12 +1177,6 @@ public static int getDummyCount() {
 }
 ```
 #
-#### Laravel X Api X android
-```
-php artisan serve --host 0.0.0.0 --port 80
-ipconfig
-```
-#
 #### Theme Duplicate
 ```xml
 <application
@@ -1479,6 +1473,20 @@ app.post('/params_input', urlencodedParser, [
 <pre>
 <img src="preview/example2.png" width="300">
 </pre>
+
+#
+#### Laravel Public X Api X android
+```
+https://stackoverflow.com/questions/30675025/access-to-laravel-5-app-locally-from-an-external-device/30675683#30675683
+
+php artisan serve --host 0.0.0.0
+http://192.168.1.101:8000
+php artisan serve --host 0.0.0.0 --port 80
+http://192.168.1.101
+```
+https://demo-laravel.gzeinnumer.com/api/product/all
+http://192.168.1.10:8000/api/product/all
+
 
 ---
 
