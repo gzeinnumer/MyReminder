@@ -1487,6 +1487,56 @@ http://192.168.1.101
 https://demo-laravel.gzeinnumer.com/api/product/all
 http://192.168.1.10:8000/api/product/all
 
+#
+#### SwipeRefreshLayout NestedScrollView LinearLayout
+
+```xml
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefreshLayout"
+    style="@style/swipeRefreshLayoutV1">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout style="@style/MyParentType.List"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+```
+
+#
+#### Laravel Route Group
+
+```php
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/', 'HomeController@index')->name('home.index');
+});
+```
+
+#
+#### PHP JSON To Object
+
+```php
+$rawJson = "{ post: { text: 'my text' } }";
+$decodedAsArray = json_decode($rawJson, true);
+$innerPost = $decodedAsArray['post'];
+
+$post = new Post();
+$post->forceFill($innerPost);
+$post->save();
+```
+
+```php
+$post = new Post();
+foreach ($r->all() as $key => $value) {
+    $post->$key = $value;
+}
+$post->save();
+```
+
 
 ---
 
