@@ -1537,6 +1537,33 @@ foreach ($r->all() as $key => $value) {
 $post->save();
 ```
 
+#
+#### laravel Image Public
+```html
+<!-- public/uploads/myimage.jpg -->
+<img src="{{url('/uploads/myimage.jpg')}}" alt="Image"/>
+```
+
+#
+#### Laravel Title
+```html
+@yield('sidebar', \View::make('defaultSidebar'))
+```
+#
+#### Validate FileSize
+```java
+//return false if file size more than 20 mB
+public boolean validateFileSize(String path) {
+    File file = new File(path);
+
+    long fileSizeInBytes = file.length();
+    long fileSizeInKB = fileSizeInBytes / 1024;
+    long fileSizeInMB = fileSizeInKB / 1024;
+
+    return fileSizeInMB <= 20;
+}
+```
+
 
 ---
 
