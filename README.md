@@ -1299,6 +1299,10 @@ http://localhost/laravel_project/public
 or
 
 http://localhost/mylogin/public
+
+php artisan serve --host 0.0.0.0
+
+http://192.168.1.3:8000/api/login
 ```
 #
 #### BottomNavigationView label always show
@@ -1564,6 +1568,36 @@ public boolean validateFileSize(String path) {
 }
 ```
 
+#
+#### Laravel Auth Get Data
+```php
+{{ Auth::user()->id }}
+```
+
+#
+#### Collection
+```
+Collections.sort(listFilter, new Comparator<DataItem>() {
+    @Override
+    public int compare(DataItem o1, DataItem o2) {
+        return o1.getStrTv2().toLowerCase().compareTo(o2.getStrTv2().toLowerCase());
+    }
+});
+```
+
+#
+#### XML Programatically
+```java
+TextView txt = (TextView) View.inflate(this, R.layout.simple_txt, null);
+```
+
+#
+#### SearchViewDialog 2 Item
+```java
+new SearchViewDialog<String>(getSupportFragmentManager())
+    ...
+    .setContentListHeight(350)
+```
 
 ---
 
