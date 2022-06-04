@@ -1102,7 +1102,7 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
 [Source](https://kotlinlang.org/docs/data-classes.html#properties-declared-in-the-class-body)
 
 #
-#### Color Opacity
+#### Color Opacity 13 30
 
 - res/color/color_primary_30
 
@@ -1131,6 +1131,10 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
         android:topRightRadius="@dimen/radius" />
 </shape>
 ```
+```xml
+<color name="colorPrimary_13">#2128A8E0</color>
+```
+
 - activity_main.xml
 ```xml
 <LinearLayout
