@@ -1675,6 +1675,46 @@ const id = currentLocation.split('/');
 id[5];
 ```
 
+#
+#### Search RecyclerView
+```java
+private ArrayList<String> listFilter;
+//this.listFilter = new ArrayList<>(list);
+
+@Override
+public Filter getFilter() {
+    return exampleFilter;
+}
+
+private final Filter exampleFilter = new Filter() {
+    @Override
+    protected FilterResults performFiltering(CharSequence constraint) {
+        List<String> fildteredList = new ArrayList<>();
+        if (constraint == null || constraint.length() == 0) {
+            fildteredList.addAll(listFilter);
+        } else {
+            String filterPattern = constraint.toString().toLowerCase().trim();
+
+            for (String item : listFilter) {
+                if (item.toString().toLowerCase().contains(filterPattern)) {
+                    fildteredList.add(item);
+                }
+            }
+        }
+        FilterResults results = new FilterResults();
+        results.values = fildteredList;
+        return results;
+    }
+
+    @Override
+    protected void publishResults(CharSequence constraint, FilterResults results) {
+        list.clear();
+        list.addAll((List) results.values);
+        notifyDataSetChanged();
+    }
+};
+```
+
 ---
 
 ```
