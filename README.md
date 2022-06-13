@@ -1603,6 +1603,78 @@ new SearchViewDialog<String>(getSupportFragmentManager())
     .setContentListHeight(350)
 ```
 
+#
+#### SearchView Best Struct
+```java
+EditTextDebounce.create(binding.ws.etSearch)
+    .watch(s -> {
+        if (adapter!=null)
+            adapter.getFilter().filter(s.toString());
+    }, 1000);
+```
+```java
+binding.btnSubmit.setOnClickListener(view -> {
+    if (binding.ws.etSearch.getText().toString().length()>0){
+        binding.ws.etSearch.setText("");
+        onShowLoading();
+        new Handler().postDelayed(() -> {
+            onHideLoading();
+            binding.btnSubmit.performClick();
+        }, 2000);
+    } else {
+        onShowLoading();
+        new Handler().postDelayed(() -> {
+            onHideLoading();
+            validasi();
+        }, 2000);
+    }
+});
+```
+- [](files/EditTextDebounce.java)
+
+#
+#### TextAppearance On All
+```xml
+app:suffixTextAppearance="@style/suffixTextAppearance"
+```
+```xml
+<style name="suffixTextAppearance">
+    <item name="android:textSize">@dimen/h5.1</item>
+</style>
+```
+
+#
+#### setTextColor
+```java
+mTextView.setTextColor(Color.parseColor("#bdbdbd"));
+```
+```java
+(From API >= 23)
+mTextView.setTextColor(ContextCompat.getColor(context, R.color.<name_of_color>));
+```
+```java
+(For API < 23))
+mTextView.setTextColor(getResources().getColor(R.color.<name_of_color>));
+```
+
+#
+#### Sql Range Time
+```sql
+SELECT * FROM hours WHERE "15:49" BETWEEN time_start AND time_end AND id_dev_unit='1';
+```
+
+#
+#### Laravel Params Get
+```php
+{{ Request::segment(1) }}
+{{Request::path()}}
+```
+```js
+const currentLocation = window.location + "";
+const id = currentLocation.split('/');
+id[5];
+```
+
 ---
 
 ```
