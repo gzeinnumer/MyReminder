@@ -1667,7 +1667,10 @@ SELECT * FROM hours WHERE "15:49" BETWEEN time_start AND time_end AND id_dev_uni
 #### Laravel Params Get
 ```php
 {{ Request::segment(1) }}
-{{Request::path()}}
+{{ Request::path() }}
+{{ request()->a }}
+{{ app('request')->input('page') }}
+{{ request()->get('date') }}
 ```
 ```js
 const currentLocation = window.location + "";
