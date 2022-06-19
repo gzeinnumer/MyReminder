@@ -1282,15 +1282,6 @@ GblFunction.convertToBase64WithDataImage(path);
 </style>
 ```
 #
-#### Laravel Route
-```php
-//laravel 8
-use App\Http\Controllers\UserController;
-Route::get('/users', [UserController::class, 'index']);
-// or
-Route::get('/users', 'App\Http\Controllers\UserController@index');
-```
-#
 #### TextView Html
 ```java
 binding.tvContent.setText(Html.fromHtml(data.getMessage()));
@@ -1320,14 +1311,6 @@ http://192.168.1.3:8000/api/login
 #### SQL ORDER BY NO ID
 ```java
 String query = "SELECT *, ROW_NUMBER() OVER() as LineNo  FROM " + table + " order by LineNo DESC;";
-```
-#
-#### Route Laravel Prefix
-```php
-use App\Http\Controllers\API\PagingControllerZein;
-Route::prefix('paging')->group(function () {
-     Route::get('/paging', [PagingControllerZein::class, 'paging']); //127.0.0.1:8000/api/paging/paging
-});
 ```
 #
 #### Laravel Key
@@ -1372,39 +1355,6 @@ public function index(){
 ```
 ```html
 <input name="id" @if(!empty($find)) value="{{$find->id}}" @endif>
-```
-#
-#### Laravel Route Name
-```php
-Route::prefix('barang')->group(function () {
-    Route::get('/', [BarangController::class, 'index'])->name('barang.index');
-    Route::post('/update', [BarangController::class, 'update'])->name('barang.update');
-});
-```
-```php
-<form action="{{ route('barang.update') }}" method="POST"></form>
-
-<form action="/update" method="POST"></form>
-```
-#
-#### Laravel Flash Message
-```php
-Route::prefix('barang')->group(function () {
-    Route::get('/', [BarangController::class, 'index']); // /barang
-});
-```
-```php
-public function create(Request $r){
-    BarangModel::create($r->all());
-    return redirect('/barang')->with('sukses','Data berhasil diinput');
-}
-```
-```php
-@if(session('sukses'))
-<div class="alert alert-success" role="alert">
-  {{session('sukses')}}
-</div>
-@endif
 ```
 #
 #### Readmu Simple With Image
@@ -1513,15 +1463,6 @@ http://192.168.1.10:8000/api/product/all
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-```
-
-#
-#### Laravel Route Group
-
-```php
-Route::group(['namespace' => 'App\Http\Controllers'], function () {
-    Route::get('/', 'HomeController@index')->name('home.index');
-});
 ```
 
 #
@@ -1664,21 +1605,6 @@ SELECT * FROM hours WHERE "15:49" BETWEEN time_start AND time_end AND id_dev_uni
 ```
 
 #
-#### Laravel Params Get
-```php
-{{ Request::segment(1) }}
-{{ Request::path() }}
-{{ request()->a }}
-{{ app('request')->input('page') }}
-{{ request()->get('date') }}
-```
-```js
-const currentLocation = window.location + "";
-const id = currentLocation.split('/');
-id[5];
-```
-
-#
 #### Search RecyclerView
 ```java
 private ArrayList<String> listFilter;
@@ -1717,6 +1643,201 @@ private final Filter exampleFilter = new Filter() {
     }
 };
 ```
+#
+#### If demo
+```
+String detail = "";
+String type = "";
+String reason = "";
+String photo = "";
+/*
+true if all empty
+false if one fill
+*/
+
+if (detail.length()==0 && type.length()==0 && reason.length()==0 && photo.length()==0){
+    Log.d(TAG, "onCreate: true delete data");
+} else {
+    Log.d(TAG, "onCreate: false simpan/update data ");
+}
+```
+
+#
+#### Web Upload Foto
+```
+//use Illuminate\Support\Str;
+$file = $r->file('signature');
+$tujuan_upload = 'storage/photo/staffs';
+$generateName = Str::random(40) . "." . $file->getClientOriginalExtension();
+$file->move($tujuan_upload, $generateName);
+$photo = $tujuan_upload . "/" . $generateName;
+
+$staff->signature = $photo;
+```
+
+#
+#### forEach number no
+```php
+<?php $i = 0 ?>
+@foreach ($aaa as $value)
+<?php $i++ ?>
+    <tr>
+        <td>{{ $i}}</td>
+        <td>{{$value->name}}</td>
+    </tr>
+@endforeach
+```
+
+#
+#### TD Center
+```html
+<td style='text-align:center; vertical-align:middle'></td>
+```
+
+#
+#### Ajax Alert Data Success
+```js
+$(function() {
+    $.ajax({
+        url: '/home/flmchart',
+        type: "GET",
+        dataType: "JSON",
+        success: function(data) {
+            alert(JSON.stringify(data));
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Gagal mendapatkan data');
+        }
+    });
+});
+```
+
+#
+#### Js Current Time Date
+```js
+var m = new Date();
+var dateString =
+    m.getUTCFullYear() + "/" +
+    ("0" + (m.getUTCMonth()+1)).slice(-2) + "/" +
+    ("0" + m.getUTCDate()).slice(-2) + " " +
+    ("0" + m.getUTCHours()).slice(-2) + ":" +
+    ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+    ("0" + m.getUTCSeconds()).slice(-2);
+
+console.log(dateString);
+```
+
+#
+#### Randomize (shuffle) JavaScript array JS
+```js
+const colors = ["#206bc4", "#4299e1", "#4263eb", "#ae3ec9", "#d6336c", "#d63939", "#f76707", "#f59f00", "#74b816", "#2fb344", "#0ca678", "#17a2b8", "#1e293b", "#626976"]
+shuffle(colors);
+
+//fun
+function shuffle(array) {
+    let currentIndex = array.length,
+        randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+
+    return array;
+}
+```
+
+#
+#### Laravel Route
+
+```php
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/', 'HomeController@index')->name('home.index');
+});
+```
+```php
+//laravel 8
+use App\Http\Controllers\UserController;
+Route::get('/users', [UserController::class, 'index']);
+// or
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+```
+```php
+use App\Http\Controllers\API\PagingControllerZein;
+Route::prefix('paging')->group(function () {
+     Route::get('/paging', [PagingControllerZein::class, 'paging']); //127.0.0.1:8000/api/paging/paging
+});
+```
+#
+#### Laravel Flash Message
+```php
+Route::prefix('barang')->group(function () {
+    Route::get('/', [BarangController::class, 'index']); // /barang
+});
+```
+```php
+public function create(Request $r){
+    BarangModel::create($r->all());
+    return redirect('/barang')->with('sukses','Data berhasil diinput');
+}
+```
+```php
+@if(session('sukses'))
+<div class="alert alert-success" role="alert">
+  {{session('sukses')}}
+</div>
+@endif
+```
+```php
+Request $r = $r->all();
+
+if ($r->date != "")
+    return Redirect::to('/data/report/' . $r->tools_id . '?date=' . $r->date)->with('sukses', 'Success Insert Data');
+else
+    return Redirect::to('/data/report/' . $r->tools_id)->with('sukses', 'Success Insert Data');
+```
+#
+#### Laravel Route Name
+```php
+Route::prefix('barang')->group(function () {
+    Route::get('/', [BarangController::class, 'index'])->name('barang.index');
+    Route::post('/update', [BarangController::class, 'update'])->name('barang.update');
+});
+```
+```php
+<form action="{{ route('barang.update') }}" method="POST"></form>
+
+<form action="/update" method="POST"></form>
+```
+```html
+<a href="/examples/export/{{Request::segment(3)}}?date={{request()->date}}" class="btn btn-yellow d-none d-sm-inline-block">
+Export
+</a>
+```
+
+#
+#### Laravel Params Get
+```php
+{{ Request::segment(1) }}
+{{ Request::path() }}
+{{ request()->a }}
+{{ app('request')->input('page') }}
+{{ request()->get('date') }}
+```
+```js
+const currentLocation = window.location + "";
+const id = currentLocation.split('/');
+id[5];
+```
+
 
 ---
 
