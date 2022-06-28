@@ -1836,6 +1836,10 @@ Export
 const currentLocation = window.location + "";
 const id = currentLocation.split('/');
 id[5];
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var date = urlParams.get('date'); ?date=2022-06-22
 ```
 
 
