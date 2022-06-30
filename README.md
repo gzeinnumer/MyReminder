@@ -1842,6 +1842,177 @@ const urlParams = new URLSearchParams(queryString);
 var date = urlParams.get('date'); ?date=2022-06-22
 ```
 
+#
+#### Laravel HtAccess
+
+- .htaccess
+
+```
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteRule ^(.*)$ public/$1 [L]
+
+</IfModule>
+```
+
+#
+#### Laravel DataTables Custom Column
+
+[Source](https://adinata-id.medium.com/server-side-datatables-menggunakan-yajra-1-pada-laravel-adminlte-c101f1276085)
+
+```html
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.bootstrap4.min.css" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+```
+
+```html
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">List Data Products</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered" id="myDatatable" style="width: 100%;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <td>Name</td>
+                        <td>Active</td>
+                        <td>Created at</td>
+                        <td>Updated at</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        var url = window.location.href;
+        var jsonData = paramsToJson(url);
+        var table = $('#myDatatable').DataTable({
+            processing: true,
+            serverSide: true,
+            autowidth: false,
+            scrollX: true,
+            order: [
+                [1, 'asc']
+            ],
+            ajax: {
+                type: 'GET',
+                url: "{{ route('products.data') }}",
+                data: JSON.parse(jsonData)
+            },
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false,
+                    width: '15px'
+                },
+                {
+                    data: 'name',
+                    name: 'name',
+                },
+                {
+                    data: 'flag_active',
+                    name: 'flag_active',
+                    width: '30px',
+                    render: function(data, type, row) {
+                        if (data == 1) {
+                            return '<span class="badge badge-sm bg-green text-uppercase ">Active</span>';
+                        } else {
+                            return '<span class="badge badge-sm bg-red text-uppercase ">Inactive</span>';
+                        }
+                    }
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at',
+                    width: '125px'
+                },
+                {
+                    data: 'updated_at',
+                    name: 'updated_at',
+                    width: '125px'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '125px'
+                },
+            ],
+            language: {
+                paginate: {
+                    next: '&#8594;', // or '→'
+                    previous: '&#8592;', // or '←'
+                }
+            }
+        });
+    });
+</script>
+```
+
+```php
+class ProductsController extends Controller
+{
+    //dataTables
+    public function dataTables(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = $this->getData($request);
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $actionBtn = "<td>aksi</td>";
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function getData(Request $request, $flag_active = "")
+    {
+        $date_start = $request->get("date_start");
+        $date_end = $request->get("date_end");
+
+        $data = ProductsModel::select();
+
+        if ($flag_active != "") {
+            $data = $data->where("products.flag_active", "=", $flag_active);
+        }
+
+        if ($date_start != "" && $date_end != "") {
+            $data = $data->wherebetween("products.created_at", array($date_start . " 00:00:00", $date_end . " 23:59:59"));
+        } else if ($date_start != "") {
+            $data = $data->where("products.created_at", ">=", $date_start . " 00:00:00");
+        } else if ($date_end != "") {
+            $data = $data->where("products.created_at", "<=", $date_end . " 23:59:59");
+        }
+
+        $data = $data->orderBy('products.flag_active', 'desc');
+        $data = $data->get();;
+
+        return $data;
+    }
+}
+```
+
 
 ---
 
