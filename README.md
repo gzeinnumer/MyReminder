@@ -2013,6 +2013,12 @@ class ProductsController extends Controller
 }
 ```
 
+#
+#### Android Download Path External
+```java
+String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+```
+
 
 ---
 
