@@ -1228,6 +1228,55 @@ private final Filter exampleFilter = new Filter() {
 String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
 ```
 
+#
+#### Java Generik Class
+
+```
+implementation 'com.google.code.gson:gson:2.8.6'
+```
+
+- In Function
+```java
+public class ClassConverterJava {
+
+    public <T> T convert(Class<T> clazz, Object object){
+        Gson gson = new Gson();
+        String hashMapString = gson.toJson(object);
+
+        return gson.fromJson(hashMapString, clazz);
+    }
+}
+```
+```java
+Model2 model2 = new ClassConverterJava().convert(Model2.class, model1);
+```
+
+- In Class
+```java
+public class ClassConverterJava<T> {
+
+    public T convert(Class<T> clazz ,Object object){
+        Gson gson = new Gson();
+        String hashMapString = gson.toJson(object);
+
+        return gson.fromJson(hashMapString, clazz);
+    }
+}
+```
+```java
+Model2 model2 = new ClassConverterJava<Model2>().convert(Model2.class, model1);
+```
+
+- Example
+```java
+Model1 model1 = new Model1();
+model1.setId(1);
+model1.setName("Zein");
+
+Model2 model2 = new ClassConverterJava().convert(Model2.class, model1);
+
+Log.d(TAG, "onCreate: "+model1.getName()+"_"+model2.getName());
+```
 
 ---
 

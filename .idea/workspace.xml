@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be10bbb4-1933-4d02-ba2f-24a82dec8162" name="Default Changelist" comment="SearchViewDialog 2 Item">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,13 +66,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609904286205</updated>
-    </task>
-    <task id="LOCAL-00045" summary="read me">
-      <created>1626680594204</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1626680594204</updated>
     </task>
     <task id="LOCAL-00046" summary="read me">
       <created>1627910888866</created>
@@ -409,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655095435319</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="SearchViewDialog 2 Item">
+      <created>1659295455304</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1659295455304</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
