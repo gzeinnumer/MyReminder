@@ -1,25 +1,28 @@
 # MyReminder
  Remider Confused Program
 
-#### `style.xml`
+#### style.xml
+
+type 1
 ```xml
-//type 1
 <item name="android:statusBarColor" tools:targetApi="l">@android:color/white</item>
 <item name="android:fitsSystemWindows">false</item>
-
-//type 2
+```
+type 2
+```xml
 <item name="android:navigationBarColor">@color/black</item>
 <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
 ```
+type 1
 ```java
 int decore = -1;
-//type 1
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     //enable this tho maker icon status bar become black
     decore += View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
 }
-
-//type 2
+```
+type 2
+```java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
     //enable this tho maker icon Navigation bar become black
     decore +=  View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
@@ -27,6 +30,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 getWindow().getDecorView().setSystemUiVisibility(decore);
 ```
+
 #
 #### View Height
 ```java
@@ -39,27 +43,32 @@ layoutParams = new LinearLayout.LayoutParams(
 );
 ```
 [GblFunction.java](https://github.com/gzeinnumer/ImmersiveBestConfig/blob/master/README.md#gblfunction)
+
 #
 #### Set View Padding
 ```java
 LinearLayout parent = findViewById(R.id.parent);
 parent.setPadding(0, 0, 0, 0);
 ```
+
 #
 #### Height actionBarSize
 ```xml
 android:layout_marginTop="?attr/actionBarSize"
 ```
+
 #
 #### Height BottomNavigation
 ```xml
 android:layout_height="@android:dimen/navigation_bar_height"
 ```
+
 #
 #### Animation Default
 ```xml
 @android:anim/bounce_interpolator
 ```
+
 #
 #### Remove WORD
 ```java
@@ -70,6 +79,7 @@ int x = strTemp.indexOf(toRemove);
 if (x != -1) str = str.substring(0,x) + str.substring(x+toRemove.length(),str.length());
 Log.d(TAG, "onCreate_: " + str);
 ```
+
 #
 #### `GblVariable.myDB`
 ```java
@@ -96,6 +106,7 @@ public class GblVariabel {
 ```
 [DatabaseHelper](https://github.com/gzeinnumer/MyReminder/blob/master/files/DatabaseHelper.java)
 & [DatabaseHelper Old Style](https://github.com/gzeinnumer/MyReminder/blob/master/files/DatabaseHelperOLD.java)
+
 #
 #### External android 10 Spesial Permit
 ```xml
@@ -104,6 +115,7 @@ public class GblVariabel {
 
 </application>
 ```
+
 #
 #### Get Color
 ```java
@@ -111,6 +123,7 @@ ColorStateList color = ContextCompat.getColorStateList(this, R.color.white);
 Color color = Color.parseColor("#F2F5F8");
 int color = 0xFFCC5500;
 ```
+
 #
 #### Resource
 ```java
@@ -118,6 +131,7 @@ String string = getApplicationContext().getString(R.string.app_name);
 int color = getResources().getColor(R.color.colorPrimary);
 int color1 = ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary);
 ```
+
 #
 #### Get Drawable
 ```java
@@ -128,6 +142,7 @@ if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
     layout.setBackground(ContextCompat.getDrawable(context, R.drawable.ready));
 }
 ```
+
 #
 #### TextInputLayout Hint Color
 ```xml
@@ -137,6 +152,7 @@ if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
     <com.google.android.material.textfield.TextInputEditText />
 </com.google.android.material.textfield.TextInputLayout>
 ```
+
 #
 #### TextInputLayout Password Toggle
 ```xml
@@ -146,6 +162,7 @@ if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
     <com.google.android.material.textfield.TextInputEditText/>
 </com.google.android.material.textfield.TextInputLayout>
 ```
+
 #
 #### Timer CountDown
 ```java
@@ -160,6 +177,7 @@ new CountDownTimer(30000, 1000) {
     }
 }.start();
 ```
+
 #
 #### adjustResize & screenOrientation
 ```xml
@@ -168,11 +186,13 @@ new CountDownTimer(30000, 1000) {
     android:screenOrientation="portrait"
     android:windowSoftInputMode="adjustResize" />
 ```
+
 #
 #### AS
 ```java
 ((Module_1_ComponentProvider) getApplication()).getModule_1_Component().inject(this);
 ```
+
 #
 #### Remove All Space
 ```java
@@ -188,6 +208,7 @@ s=s.replaceAll("\\s+"," ");
 String[] parts = s.split(" ");
 Log.d(TAG, "onCreate_: "+parts[2]);
 ```
+
 #
 #### `getSupportFragmentManager()`
 ```java
@@ -197,6 +218,7 @@ FragmentTransaction transaction = ((FragmentActivity) activity).getSupportFragme
 Class class = activity.getClass();
 new Intent(requireContext(), class)
 ```
+
 #
 #### Kotlin simple get set
 ```kotlin
@@ -204,6 +226,7 @@ var TOKEN: String
     get() = prefs.getString(KEY_TOKEN,default)
     set(value) = prefs.edit().putString(KEY_TOKEN, value).apply()
 ```
+
 #
 #### Shape
 ```xml
@@ -216,15 +239,16 @@ var TOKEN: String
 
 </shape>
 ```
+
 #
 #### TextView Color Default
 ```xml
 android:textColor="@android:color/tab_indicator_text"
-
-//or
-
+```
+```
 #808080
 ```
+
 #
 #### Remove new
 ```java
@@ -260,6 +284,7 @@ public class ValidatorValue {
 ```java
 ValidatorValue.with(getApplicationContext()).build();
 ```
+
 #
 #### TimeFormat 12/24
 ```java
@@ -271,6 +296,7 @@ if (isSystem24Hour){
     clockFormat = TimeFormat.CLOCK_12H;
 }
 ```
+
 #
 #### Split String
 ```java
@@ -279,6 +305,7 @@ String[] separated = currentString.split(":");
 separated[0]; // this will contain "Fruit"
 separated[1]; // this will contain " they taste good"
 ```
+
 #
 #### Last Dot . Checked
 ```java
@@ -288,16 +315,19 @@ if (holder.number.getText().length() > 0 && holder.number.getText().toString().e
     break;
 }
 ```
+
 #
 #### RecyclerView Big Cached
 ```java
 binding.rvData.setItemViewCacheSize(100);
 ```
+
 #
 #### RecyclerView Divider
 ```java
 binding.rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 ```
+
 #
 #### RecyclerView Keep Value On Model And Show
 ```java
@@ -325,6 +355,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.ViewHolder> 
     }
 }
 ```
+
 #
 #### EditText Attribute
 ```java
@@ -334,6 +365,7 @@ holder.number.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
 holder.number.setInputType(InputType.TYPE_CLASS_NUMBER);
 holder.number.setKeyListener(DigitsKeyListener.getInstance("123456789"));
 ```
+
 #
 #### Disable 0 First
 ```java
@@ -348,6 +380,7 @@ editTexts.addTextChangedListener(new SimpleTextWatcher(s -> {
     }
 }));
 ```
+
 #
 #### Disable Space First
 ```java
@@ -364,6 +397,7 @@ editTexts.addTextChangedListener(new SimpleTextWatcher(s -> {
     }
 }));
 ```
+
 #
 #### Intent to GMaps
 ```java
@@ -372,6 +406,7 @@ Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
 mapIntent.setPackage("com.google.android.apps.maps");
 startActivity(mapIntent);
 ```
+
 #
 #### Read JSON From Assets
 ```java
@@ -391,6 +426,7 @@ public static String readFile(Activity activity, String fileName) {
     return content.toString();
 }
 ```
+
 #
 #### Read Image From Assets
 ```java
@@ -408,12 +444,14 @@ catch(IOException ex)
     return;
 }
 ```
+
 #
 #### setBackgroundResource programatically
 ```java
 bindingItem.tvStatus.setText("Open");
 bindingItem.tvStatus.setBackgroundResource(R.drawable.shape_green);
 ```
+
 #
 #### ShapeTextView
 ```xml
@@ -432,6 +470,7 @@ bindingItem.tvStatus.setBackgroundResource(R.drawable.shape_green);
     <solid android:color="@color/green_500" />
 </shape>
 ```
+
 #
 #### Copy All Record Table
 ```
@@ -439,10 +478,12 @@ insert into api_response
 select * from buang_api_response a
 where not EXISTS (select 1 from api_response b where a.id=b.id);
 ```
+
 #
 #### Koltin Configuration
 
 ![](https://github.com/gzeinnumer/MyReminder/blob/master/preview/example1.jpg)
+
 #
 #### Http Save Log
 ```java
@@ -452,12 +493,14 @@ HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new Logger() {
   }
 });
 ```
+
 #
 #### Set Drawable
 ```java
 myImgView.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow_down));
 myImgView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_arrow_down));
 ```
+
 #
 #### Get Date Range
 ```java
@@ -477,6 +520,7 @@ for(int i = 0; i < remainingDay; i++){
 
 Log.d(getClass().getSimpleName(), "on_Create: "+allDays.toString());
 ```
+
 #
 #### Create Random Code
 ```java
@@ -491,6 +535,7 @@ public int createRandomCode(int codeLength) {
     return Integer.parseInt(sb.toString());
 }
 ```
+
 #
 #### Object ToJson - Json ToObject
 ```java
@@ -514,6 +559,7 @@ Log.d(getClass().getSimpleName(), "onCre_ate: "+gson.toJson(read.get(i)));
 String json = string_json;
 List<Object> lstObject = gson.fromJson(json_ string, Object.class);
 ```
+
 #
 #### Object ToJson - Json ToObject
 ```java
@@ -570,6 +616,7 @@ public String requestToString(Response response) {
     return msg;
 }
 ```
+
 #
 #### CompositeDisposable RXJava
 ```java
@@ -579,11 +626,13 @@ compositeDisposable.add(
     apiService.registerDeview()..
 );
 ```
+
 #
-#### SD_SO_MAIN 
+#### SD_SO_MAIN
 ```
 search on google `leveling query id parent_id mysql`.
 ```
+
 #
 #### Base64 String
 ```
@@ -621,6 +670,7 @@ Log.d(TAG,"Decoded value is " + new String(valueDecoded));
 ```java
 recyclerView.setNestedScrollingEnabled(false);
 ```
+
 #
 #### Check Service Is Running
 ```java
@@ -641,6 +691,7 @@ if (!isMyServiceRunning(EmployeeVisitService.class)) {
     Log.d(TAG, "service Employee sudah ada ");
 }
 ```
+
 #
 #### FLutter Divider
 ```dart
@@ -651,6 +702,7 @@ const Divider(
     endIndent: 20,
 )
 ```
+
 #
 #### Android Issue Core:1.7
 ```gradle
@@ -662,6 +714,7 @@ android{
     }
 }
 ```
+
 #
 #### Dynamic RecyclerView Scroll On Focused Ediitext
 ```xml
@@ -717,6 +770,7 @@ binding.rvData.setItemViewCacheSize(100);
         android:nestedScrollingEnabled="false" />
 <!--</androidx.core.widget.NestedScrollView>-->
 ```
+
 #
 #### RecyclerView Grid
 ```java
@@ -728,6 +782,7 @@ GridLayoutManager layoutManager = new GridLayoutManager(this, 2, GridLayoutManag
 binding.rvKategori.setLayoutManager(layoutManager);
 binding.rvKategori.hasFixedSize();
 ```
+
 #
 #### RecyclerView Grid Style
 ```java
@@ -735,6 +790,7 @@ StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, Lin
 GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
 LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 ```
+
 #
 #### Symbol
 ```
@@ -745,6 +801,7 @@ LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 <string name="space_demo">|&#x20;|&#x2009;|&#x200A;|</string>
 | SPACE | THIN SPACE | HAIR SPACE |
 ```
+
 #
 #### RecylcerView No Scroll Effect
 ```xml
@@ -752,6 +809,7 @@ LinearLayoutManager layoutManager = new LinearLayoutManager(this);
     ...
     android:overScrollMode="never"/>
 ```
+
 #
 #### Best Color
 ```xml
@@ -768,6 +826,7 @@ LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 <color name="green_A700">#00C853</color>
 <color name="blue_500">#2196F3</color>
 ```
+
 #
 #### Disbale EditText
 ```xml
@@ -786,6 +845,7 @@ LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         android:editable="false" />
 </com.google.android.material.textfield.TextInputLayout>
 ```
+
 #
 #### TextView Shape White Nice
 ```xml
@@ -818,17 +878,20 @@ LinearLayoutManager layoutManager = new LinearLayoutManager(this);
     android:paddingBottom="@dimen/space_half"
     android:text="MyTextContent" />
 ```
+
 #
 #### Default Anim Android
 ```xml
 app:exitAnim="@android:anim/fade_out"
 ```
+
 #
 #### Component Navigation
 ```kotlin
 val action = FirstFragmentDirections.actionFirstFragmentToFirstDotFirstFragment("data")
 findNavController().navigate(action)
 ```
+
 #
 #### Data Class
 ```koltin
@@ -848,7 +911,6 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
 #### Color Opacity 13 30
 
 - res/color/color_primary_30
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -886,6 +948,7 @@ data class ExampleModel(val id: Int, val name: String,val address: String) {
     ...
     />
 ```
+
 #
 #### Dependency: androidx.core:core-ktx:1.7.0.
 ```java
@@ -898,6 +961,7 @@ configurations.all {
     }
 }
 ```
+
 #
 #### Round Up
 ```java
@@ -905,6 +969,7 @@ public int getPriceinpcs() {
     return (int) Math.ceil(priceinpcs);
 }
 ```
+
 #
 #### Message Or Realease
 ```java
@@ -916,6 +981,7 @@ public static String msgDebugOrRelease(String debug, String realese) {
     }
 }
 ```
+
 #
 #### Dummy Count
 ```java
@@ -923,6 +989,7 @@ public static int getDummyCount() {
     return Integer.parseInt(MBUtilsDate.getCurrentTime("HH", Locale.getDefault())) + Integer.parseInt(MBUtilsDate.getCurrentTime("mm", Locale.getDefault()));
 }
 ```
+
 #
 #### Theme Duplicate
 ```xml
@@ -930,6 +997,7 @@ public static int getDummyCount() {
     ...
     tools:replace="android:theme, android:allowBackup">
 ```
+
 #
 #### Thumbnail YouTube YT
 
@@ -948,6 +1016,7 @@ Glide.with(context).load(thumnailLink).into(image);
 implementation 'com.github.bumptech.glide:glide:4.11.0'
 annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 ```
+
 #
 #### Include
 ```xml
@@ -955,6 +1024,7 @@ annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     android:id="@+id/ws"
     layout="@layout/widget_search_v2" />
 ```
+
 #
 #### Validate Time
 ```java
@@ -967,6 +1037,7 @@ if (currentHourIn24Format>=21 && currentHourIn24Format<=23){
     Toast.makeText(getApplicationContext(), currentHourIn24Format+" else", Toast.LENGTH_SHORT).show();
 }
 ```
+
 #
 #### Path To Base64
 ```java
@@ -984,10 +1055,10 @@ public static String convertToBase64WithDataImage(String imagePath) {
     }
 }
 
-
 Strig path = "";
 GblFunction.convertToBase64WithDataImage(path);
 ```
+
 #
 #### Nice CardView
 ```xml
@@ -1024,11 +1095,13 @@ GblFunction.convertToBase64WithDataImage(path);
     <item name="textAllCaps">false</item>
 </style>
 ```
+
 #
 #### TextView Html
 ```java
 binding.tvContent.setText(Html.fromHtml(data.getMessage()));
 ```
+
 #
 #### Ratio ConstraintLayout
 ```xml
@@ -1039,6 +1112,7 @@ android:layout_height="0dp"
 app:layout_constraintHeight_default="percent"
 app:layout_constraintHeight_percent=".5"
 ```
+
 #
 #### Copy Text To Clipboard
 ```java
@@ -1090,7 +1164,6 @@ private void setClipboard(Context context, String text) {
 
 #
 #### SwipeRefreshLayout NestedScrollView LinearLayout
-
 ```xml
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:id="@+id/swipeRefreshLayout"
@@ -1149,7 +1222,7 @@ binding.btnSubmit.setOnClickListener(view -> {
     }
 });
 ```
-- [](files/EditTextDebounce.java)
+- [EditTextDebounce](files/EditTextDebounce.java)
 
 #
 #### TextAppearance On All
@@ -1230,7 +1303,6 @@ String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTOR
 
 #
 #### Java Generik Class
-
 ```
 implementation 'com.google.code.gson:gson:2.8.6'
 ```
