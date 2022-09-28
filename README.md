@@ -1350,6 +1350,56 @@ Model2 model2 = new ClassConverterJava().convert(Model2.class, model1);
 Log.d(TAG, "onCreate: "+model1.getName()+"_"+model2.getName());
 ```
 
+#
+#### Vidio
+```java
+String res = printBinarySquare(2);
+Log.d(TAG, "onCreate: "+res);
+```
+
+```
+01
+10
+```
+
+```java
+res = printBinarySquare(5);
+Log.d(TAG, "onCreate: "+res);
+```
+
+```
+01010
+10101
+01010
+10101
+01010
+```
+
+```java
+String printBinarySquare(int count) {
+    int index = 0;
+    String str = "\n";
+    for (int i = 0; i < count; i++) {
+        index++;
+        String c = "";
+        if (index%2!=0)
+            c += "0";
+        else
+            c += "1";
+        for (int j = 0; j < count; j++) {
+            str += c;
+            if (c.equals("1"))
+                c = "0";
+            else
+                c = "1";
+        }
+        str += "\n";
+    }
+
+    return str;
+}
+```
+
 ---
 
 ```
