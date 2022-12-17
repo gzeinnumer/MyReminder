@@ -1400,6 +1400,63 @@ String printBinarySquare(int count) {
 }
 ```
 
+#
+#### Card Backgroud Shape
+```java
+binding.btn.setBackgroundResource(R.drawable.btn_enable);
+binding.btn.setBackgroundResource(R.drawable.btn_disable);
+```
+```xml
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/btn"
+    android:layout_margin="10dp"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:background="@drawable/btn_enable">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+```
+- btn_enable.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="10dp"/>
+    <solid android:color="#ECECEC"/>
+</shape>
+```
+- btn_disable.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <corners android:radius="10dp"/>
+  <solid android:color="#8A717171"/>
+</shape>
+```
+
+- validateFileSize 10 MB 20 MB 10MB 20MB
+
+```java
+//return false if file size more than 20 mB
+public boolean validateFileSize(String path) {
+    File file = new File(path);
+
+    long fileSizeInBytes = file.length();
+    long fileSizeInKB = fileSizeInBytes / 1024;
+    long fileSizeInMB = fileSizeInKB / 1024;
+
+    return fileSizeInMB <= 10;
+}
+```
+
 ---
 
 ```
